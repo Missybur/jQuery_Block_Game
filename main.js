@@ -1,60 +1,43 @@
-$(document).ready(init);
-function init () {
+$(document).ready(function(){
   var randomNumber = Math.floor(Math.random()*9);
   var turnsRemaining = 3;
-  var $counter = $(#counter);
+  var $counter = $("#counter");
   var gameStates = {
-    'on': 'Treasure Hunt',
+    'on': 'Panda Bamboo Treasure Hunt',
     'won': 'You won!',
-    'lost': 'Game Over'
+    'lost': 'Game Over!'
   };
-var gameState = gameStates['on'];
-   // on, won, lost
+  var currentGameState = 'on';
+
   $counter.text(turnsRemaining);
   var isGameStillOn = function() {
-    return gameState === 'on';
+    return currentGameState === 'on';
   }
   var changeGameState = function(newState) {
-    gameState = newState;
-    $("#headerMessage").text(newState);
+    currentGameState = newState;
+    $("#headerMessage").text(gameStates[currentGameState]);
   };
 
-  var handleClick = function(event) {\
+  var handleClick = function(event){
     if (isGameStillOn()) {
       event.preventDefault();
       decrementTurnsRemaining();
       var $link = $(this);
-      $link.addClass( $link.data("id") === randomNumber ? "winner" : "loser");
+      var correctAnswer = $link.data("id") === randomNumber;
+      $link.addClass(correctAnswer ? "winner" : "loser");
       if (correctAnswer) {
-        changeGameState('You won!');
-        return; // breaking out of the function
+        changeGameState('won');
+        return;
       }
     }
     if (turnsRemaining === 0) {
-      changeGameState = 'You Lost!';
+      changeGameState('lost');
     }
   };
 
-$(".btn").on("click" , handleClick);
+  $(".btn").on("click", handleClick);
 
-    var decrementTurnsRemaining = function() {
-      $("counter").text(turnsRemaining--);
-    };
-  }
+  var decrementTurnsRemaining = function() {
+    $counter.text(--turnsRemaining);
+  };
 });
-
-
-// var cellClass;
-
-//   $('.box').on({
-//     mouseover: function() {
-//       ($link).css({background: '#FF0000'});
-//     },
-//     mouseleave: function(){
-//       ($link).css({background: '#000000'})
-//     },
-//     click: function(){
-//       ($link).off('mouseleave');
-//     }
-//   });
-// }

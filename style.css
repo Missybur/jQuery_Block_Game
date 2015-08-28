@@ -1,26 +1,48 @@
 .container {
   padding: 20px;
   position: center;
+    background color: #99FF66 ;
+
 }
 
-div .box {
+body {
+    background color: #99FF66 ;
+}
+
+.box {
   border: 2px solid purple;
   height: 100px;
   width: 100px;
-  background-color: #333;
+  background-color: #FFFFFF;
   margin-left: 10px;
   margin-bottom: 10px;
 }
 
 h1 {
-  color: purple;
-  position: center;
+    font-family: 'PT Sans Caption', sans-serif;
+    color: purple;
+    text-align: center;
+}
+
+h4 {
+    font-family: 'PT Sans Caption', sans-serif;
+    text-align: center;
+
+
 }
 
 .winner {
-  background-color: green;
+    background-image: url("panda.png");
+    height: 100px;
+    width: 100px;
+    font-family: 'PT Sans Caption', sans-serif;
+
 }
 
 .loser {
-  background-color: red;
+    background-image: url("bamboo.png");
+    height: 100px;
+    width: 100px;
+    font-family: 'PT Sans Caption', sans-serif;
+
 }
