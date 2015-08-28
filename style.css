@@ -1,0 +1,26 @@
+.container {
+  padding: 20px;
+  position: center;
+}
+
+div .box {
+  border: 2px solid purple;
+  height: 100px;
+  width: 100px;
+  background-color: #333;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+h1 {
+  color: purple;
+  position: center;
+}
+
+.winner {
+  background-color: green;
+}
+
+.loser {
+  background-color: red;
+}
